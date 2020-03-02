@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GMCalendar_Example' do
+  pod 'GMCalendar', :path => '../'
+
+  target 'GMCalendar_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
