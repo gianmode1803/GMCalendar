@@ -46,7 +46,7 @@
 		72374602B6AAF31242D95987 /* Pods-GMCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMCalendar_Example.release.xcconfig"; path = "Target Support Files/Pods-GMCalendar_Example/Pods-GMCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		B168B7B266936FC06057FDF7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E2A4E8B77F520371F8E68D4C /* Pods_GMCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMCalendar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF547F4B66A4EDF73535341F /* GMCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GMCalendar.podspec; path = ../GMCalendar.podspec; sourceTree = "<group>"; };
+		EF547F4B66A4EDF73535341F /* GMCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GMCalendar.podspec; path = ../GMCalendar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
