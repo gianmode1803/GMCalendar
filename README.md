@@ -172,7 +172,9 @@ var daysWithTasks: [DayModel] = [
 
 ## Author
 
-Gianpiero Mode, Tw: @GianMode
+Gianpiero Mode
+Tw: @GianMode
+Linkedln: www.linkedin.com/in/gianpiero-mode-a001b6a7
 
 ## License
 
