@@ -1,0 +1,16 @@
+PODS:
+  - GMCalendar (1.0)
+
+DEPENDENCIES:
+  - GMCalendar (from `../`)
+
+EXTERNAL SOURCES:
+  GMCalendar:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  GMCalendar: 29e6b2dff4913c7e91fabaa83550f0038eff81a3
+
+PODFILE CHECKSUM: 692d2ad6129e763274fa0dbdda56649758c9dad3
+
+COCOAPODS: 1.8.4

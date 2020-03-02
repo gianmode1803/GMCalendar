@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		155082D8AD9B3358AF6259CE /* Pods-GMCalendar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMCalendar_Tests.release.xcconfig"; path = "Target Support Files/Pods-GMCalendar_Tests/Pods-GMCalendar_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3C0EEC208AA7531D162EB566 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		3C0EEC208AA7531D162EB566 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4869BF0B8165B9328B28F73D /* Pods-GMCalendar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMCalendar_Tests.debug.xcconfig"; path = "Target Support Files/Pods-GMCalendar_Tests/Pods-GMCalendar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		55F292FDFA3C7D28C50B56C1 /* Pods-GMCalendar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMCalendar_Example.debug.xcconfig"; path = "Target Support Files/Pods-GMCalendar_Example/Pods-GMCalendar_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* GMCalendar_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GMCalendar_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,9 +44,9 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		62E9EFD00979D94C1D80BF9E /* Pods_GMCalendar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMCalendar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72374602B6AAF31242D95987 /* Pods-GMCalendar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GMCalendar_Example.release.xcconfig"; path = "Target Support Files/Pods-GMCalendar_Example/Pods-GMCalendar_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B168B7B266936FC06057FDF7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B168B7B266936FC06057FDF7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E2A4E8B77F520371F8E68D4C /* Pods_GMCalendar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GMCalendar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF547F4B66A4EDF73535341F /* GMCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = GMCalendar.podspec; path = ../GMCalendar.podspec; sourceTree = "<group>"; };
+		EF547F4B66A4EDF73535341F /* GMCalendar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GMCalendar.podspec; path = ../GMCalendar.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,6 @@
 				4869BF0B8165B9328B28F73D /* Pods-GMCalendar_Tests.debug.xcconfig */,
 				155082D8AD9B3358AF6259CE /* Pods-GMCalendar_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -419,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -465,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

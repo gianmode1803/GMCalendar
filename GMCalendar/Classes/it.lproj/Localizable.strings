@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  CalendarView
+
+  Created by Gianpiero Mode on 26/02/2020.
+  Copyright © 2020 Gianpiero Mode. All rights reserved.
+*/
+
+"monday_header" = "Lun";
+"tuesday_header" = "Mar";
+"wednesday_header" = "Mer";
+"thursday_header" = "Gio";
+"friday_header" = "Ven";
+"saturday_header" = "Sab";
+"sunday_header" = "Dom";

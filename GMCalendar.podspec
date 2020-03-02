@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GMCalendar'
-  s.version          = '0.1.0'
+  s.version          = '1.0'
   s.summary          = 'A short description of GMCalendar.'
 
 # This description is used to generate tags and improve search results.
@@ -17,24 +17,22 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'GMCalendar is a customizable Calendar Pod written in swift'
 
   s.homepage         = 'https://github.com/gianmode1803@hotmail.com/GMCalendar'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'gianmode1803@hotmail.com' => 'gianmode1803@hotmail.com' }
   s.source           = { :git => 'https://github.com/gianmode1803@hotmail.com/GMCalendar.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  # s.social_media_url = 'https://twitter.com/gianmode'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '13.2'
 
   s.source_files = 'GMCalendar/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'GMCalendar' => ['GMCalendar/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'GMCalendar' => ['GMCalendar/Assets/*.png']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
