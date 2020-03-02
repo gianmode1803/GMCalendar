@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'GMCalendar is a customizable Calendar Pod written in swift'
+  s.description      = 'GMCalendar is a customizable Calendar Pod written in swift that can help if you need to use a simple and easy Calendar on Swift.'
 
   s.homepage         = 'https://github.com/gianmode1803/GMCalendar.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'GMCalendar' => ['GMCalendar/Assets/*.png']
   }
-
+  spec.swift_version = '5.0'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
