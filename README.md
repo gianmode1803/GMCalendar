@@ -3,7 +3,7 @@
 If you like this pod, please give me a ★ at the top right of the page!
 
 
-[![CI Status](https://img.shields.io/travis/gianmode1803@hotmail.com/GMCalendar.svg?style=flat)](https://travis-ci.org/gianmode1803@hotmail.com/GMCalendar)
+![Swift](https://github.com/gianmode1803/GMDCalendar/workflows/Swift/badge.svg?branch=master)
 [![Version](https://img.shields.io/cocoapods/v/GMCalendar.svg?style=flat)](https://cocoapods.org/pods/GMCalendar)
 [![License](https://img.shields.io/cocoapods/l/GMCalendar.svg?style=flat)](https://cocoapods.org/pods/GMCalendar)
 [![Platform](https://img.shields.io/cocoapods/p/GMCalendar.svg?style=flat)](https://cocoapods.org/pods/GMCalendar)
