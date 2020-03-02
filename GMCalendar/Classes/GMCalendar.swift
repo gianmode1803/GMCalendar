@@ -28,8 +28,8 @@ class GMCalendar: UIView {
     @IBInspectable var task2Color: UIColor = .red
     
     @IBInspectable var arrowsAvailable: Bool = true
-    @IBInspectable var rightArrowImage: UIImage? = UIImage(named: "right_arrow", in: Bundle(for: GMCalendar.self), compatibleWith: .current)//UIImage(named: "right_arrow")
-    @IBInspectable var leftArrowImage: UIImage? = UIImage(named: "left_arrow", in: Bundle(for: GMCalendar.self), compatibleWith: .current)//UIImage(named: "left_arrow")
+    @IBInspectable var rightArrowImage: UIImage? = UIImage(named: "right_arrow")
+    @IBInspectable var leftArrowImage: UIImage? = UIImage(named: "left_arrow")
     
     @IBInspectable var verticalSwipe: Bool = true
     @IBInspectable var horizontalSwipe: Bool = true
@@ -82,6 +82,7 @@ class GMCalendar: UIView {
     private var dayHeight: CGFloat = 25
     
     private let cal = Calendar(identifier: .gregorian)
+    private var dayNames: [String] = []
     
     var delegate: GMCalendarDelegate?
     
@@ -105,10 +106,23 @@ class GMCalendar: UIView {
     //MARK: - Custom functions
     
     func commonInit(){
-        let view = UINib(nibName: "\(GMCalendar.self)", bundle: .some(Bundle(for: GMCalendar.self))).instantiate(withOwner: self, options: nil)[0] as! UIView
-        view.frame = CGRect(x: 0, y: 0, width: self.widthForView, height: self.heightForView)
+//        let view = UINib(nibName: "\(GMCalendar.self)", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UIView
+//        view.frame = CGRect(x: 0, y: 0, width: self.widthForView, height: self.heightForView)
+//        view.widthAnchor.constraint(equalToConstant: self.widthForView).isActive = true
+//        view.heightAnchor.constraint(equalToConstant: self.heightForView).isActive = true
+//        self.addSubview(view)
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.widthForView, height: self.widthForView))
         view.widthAnchor.constraint(equalToConstant: self.widthForView).isActive = true
         view.heightAnchor.constraint(equalToConstant: self.heightForView).isActive = true
+        
+        let contentview = UIView(frame: CGRect(x: CGFloat(5), y: CGFloat(5), width: (self.widthForView - 10), height: (self.widthForView - 10)))
+        contentview.widthAnchor.constraint(equalToConstant: (self.widthForView - 10)).isActive = true
+        contentview.heightAnchor.constraint(equalToConstant: self.heightForView - 10).isActive = true
+        
+        view.addSubview(contentview)
+        
+        self.content = contentview
+        
         self.addSubview(view)
         
         self.initView()
@@ -119,6 +133,7 @@ class GMCalendar: UIView {
         
         self.originalYear = self.currentYear
         self.originalMonth = self.currentMonth
+        self.dayNames = cal.weekdaySymbols
     }
     
     func setupHeights(){
@@ -230,9 +245,11 @@ class GMCalendar: UIView {
         if self.arrowsAvailable{
             //Left Arrow -----
             let leftArrowImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.monthHeader / 2, height: self.monthHeader / 2))
-            leftArrowImageView.image = self.leftArrowImage
-            leftArrowImageView.isUserInteractionEnabled = true
-            leftArrowImageView.contentMode = .scaleAspectFit
+            if self.leftArrowImage != nil{
+                leftArrowImageView.image = self.leftArrowImage
+                leftArrowImageView.isUserInteractionEnabled = true
+                leftArrowImageView.contentMode = .scaleAspectFit
+            }
             
             leftArrowImageView.widthAnchor.constraint(equalToConstant: self.headerHeight).isActive = true
             
@@ -241,9 +258,11 @@ class GMCalendar: UIView {
             
             //Left Arrow -----
             let rightArrowImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.monthHeader / 2, height: self.monthHeader / 2))
-            rightArrowImageView.image = self.rightArrowImage
-            rightArrowImageView.isUserInteractionEnabled = true
-            rightArrowImageView.contentMode = .scaleAspectFit
+            if self.rightArrowImage != nil{
+                rightArrowImageView.image = self.rightArrowImage
+                rightArrowImageView.isUserInteractionEnabled = true
+                rightArrowImageView.contentMode = .scaleAspectFit
+            }
             
             rightArrowImageView.widthAnchor.constraint(equalToConstant: self.headerHeight).isActive = true
             
@@ -277,7 +296,7 @@ class GMCalendar: UIView {
             let widthForHeader = (self.bounds.width / CGFloat(DayItems.allCasesIterable.count)) - (spaceBetweenDays * CGFloat(DayItems.allCasesIterable.count))
             let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthForHeader, height: headerHeight))
             headerLabel.textAlignment = .center
-            headerLabel.text = item.rawValue.localized.uppercased()
+            headerLabel.text = item.getDayName().uppercased()
             headerLabel.adjustsFontSizeToFitWidth = true
             headerLabel.minimumScaleFactor = 0.2
             headerLabel.numberOfLines = 1

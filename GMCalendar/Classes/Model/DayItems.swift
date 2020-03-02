@@ -64,6 +64,59 @@ enum DayItems: String, Equatable, CaseIterable{
             return .sunday
         }
     }
+    func getDayName() -> String{
+        let calendar = Calendar(identifier: .gregorian)
+        
+        //1 sunday, 2 monday
+        let firstDay = calendar.firstWeekday
+        
+        let days = calendar.weekdaySymbols
+        
+        switch self {
+        case .monday:
+            if firstDay == 1{
+                return String(days[1])
+            }else{
+                return String(days[0])
+            }
+        case .tuesday:
+            if firstDay == 1{
+                return String(days[2])
+            }else{
+                return String(days[1])
+            }
+        case .wednesday:
+            if firstDay == 1{
+                return String(days[3])
+            }else{
+                return String(days[2])
+            }
+        case .thursday:
+            if firstDay == 1{
+                return String(days[4])
+            }else{
+                return String(days[3])
+            }
+        case .friday:
+            if firstDay == 1{
+                return String(days[5])
+            }else{
+                return String(days[4])
+            }
+        case .saturday:
+            if firstDay == 1{
+                return String(days[6])
+            }else{
+                return String(days[5])
+            }
+        case .sunday:
+            if firstDay == 1{
+                return String(days[0])
+            }else{
+                return String(days[6])
+            }
+        }
+    }
 }
 enum WeekNumber: Equatable{
     case first
