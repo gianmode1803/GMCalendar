@@ -19,11 +19,11 @@ Pod::Spec.new do |s|
 
   s.description      = 'GMCalendar is a customizable Calendar Pod written in swift'
 
-  s.homepage         = 'https://github.com/gianmode1803@hotmail.com/GMCalendar'
+  s.homepage         = 'https://github.com/gianmode1803/GMCalendar.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'gianmode1803@hotmail.com' => 'gianmode1803@hotmail.com' }
-  s.source           = { :git => 'https://github.com/gianmode1803@hotmail.com/GMCalendar.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/gianmode1803/GMCalendar.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/gianmode'
 
   s.ios.deployment_target = '13.2'
