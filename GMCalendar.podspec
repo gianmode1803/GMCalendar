@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'GMCalendar'
   s.version          = '1.0'
-  s.summary          = 'A short description of GMCalendar.'
+  s.summary          = 'Easy customizable Calendar for swift.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -27,13 +27,13 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/gianmode'
 
   s.ios.deployment_target = '13.2'
-
+  s.swift_version = '5.0'
   s.source_files = 'GMCalendar/Classes/**/*'
   
   s.resource_bundles = {
     'GMCalendar' => ['GMCalendar/Assets/*.png']
   }
-  spec.swift_version = '5.0'
+  
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
