@@ -4,9 +4,7 @@ If you like this pod, please give me a ★ at the top right of the page!
 
 
 ![Swift](https://github.com/gianmode1803/GMDCalendar/workflows/Swift/badge.svg?branch=master)
-[![Version](https://img.shields.io/cocoapods/v/GMCalendar.svg?style=flat)](https://cocoapods.org/pods/GMCalendar)
 [![License](https://img.shields.io/cocoapods/l/GMCalendar.svg?style=flat)](https://cocoapods.org/pods/GMCalendar)
-[![Platform](https://img.shields.io/cocoapods/p/GMCalendar.svg?style=flat)](https://cocoapods.org/pods/GMCalendar)
 
 ## Overview
 
@@ -46,7 +44,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '13.0'
 use_frameworks!
 
-pod 'GMCalendar'
+pod 'GMCalendar', '1.1'
 ```
 
 Then, run the following command: 
@@ -172,7 +170,9 @@ var daysWithTasks: [DayModel] = [
 
 ## Author
 
-Gianpiero Mode, Tw: @GianMode
+Gianpiero Mode
+Tw: @GianMode
+Linkedln: www.linkedin.com/in/gianpiero-mode-a001b6a7
 
 ## License
 
