@@ -1,5 +1,5 @@
 PODS:
-  - GMCalendar (1.0)
+  - GMCalendar (1.1)
 
 DEPENDENCIES:
   - GMCalendar (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  GMCalendar: 29e6b2dff4913c7e91fabaa83550f0038eff81a3
+  GMCalendar: d5fea518e105367452d8c5333c21e101a7429196
 
 PODFILE CHECKSUM: 692d2ad6129e763274fa0dbdda56649758c9dad3
 

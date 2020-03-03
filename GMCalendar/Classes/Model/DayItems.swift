@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DayItems: String, Equatable, CaseIterable{
+public enum DayItems: String, Equatable, CaseIterable{
     
     case monday = "monday_header"//"monday"
     case tuesday = "tuesday_header"//"tuesday"
@@ -44,7 +44,7 @@ enum DayItems: String, Equatable, CaseIterable{
         
     }
     
-    func getDayFromNumber(number: Int) -> Self{
+    public func getDayFromNumber(number: Int) -> Self{
         switch number {
         case 1:
             return .monday
@@ -64,7 +64,7 @@ enum DayItems: String, Equatable, CaseIterable{
             return .sunday
         }
     }
-    func getDayName() -> String{
+    public func getDayName() -> String{
         let calendar = Calendar(identifier: .gregorian)
         
         //1 sunday, 2 monday
@@ -118,7 +118,7 @@ enum DayItems: String, Equatable, CaseIterable{
         }
     }
 }
-enum WeekNumber: Equatable{
+public enum WeekNumber: Equatable{
     case first
     case last
 }

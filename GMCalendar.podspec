@@ -24,17 +24,17 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'gianmode1803@hotmail.com' => 'gianmode1803@hotmail.com' }
   s.source           = { :git => 'https://github.com/gianmode1803/GMCalendar.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/gianmode'
+  s.social_media_url = 'https://twitter.com/gianmode'
 
   s.ios.deployment_target = '13.2'
   s.swift_version = '5.0'
   s.source_files = 'GMCalendar/Classes/**/*'
-  
+  s.requires_arc = true
   s.resource_bundles = {
     'GMCalendar' => ['GMCalendar/Assets/*.png']
   }
   
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  #s.frameworks = 'UIKit', 'MapKit', 'GMCalendar'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

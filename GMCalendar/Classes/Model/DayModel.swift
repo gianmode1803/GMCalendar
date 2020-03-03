@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DayModel{
+public struct DayModel{
     var day: Int
     var month: Int
     var year: Int

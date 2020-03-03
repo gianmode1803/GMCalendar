@@ -8,49 +8,49 @@
 
 import UIKit
 
-protocol GMCalendarDelegate{
+public protocol GMCalendarDelegate{
     func didSelectedDay(view: UIView, day: Int, isAvailable: Bool)
     func didUpdateMonth(view: UIView, month: Int, year: Int)
 }
 
 
-class GMCalendar: UIView {
+public class GMCalendar: UIView {
 
     //MARK: - IBOutlets
     @IBOutlet weak private var content: UIView!
     
     //MARK: - Modifiable properties
-    @IBInspectable var monthNameVisible: Bool = true
-    @IBInspectable var borderColor: UIColor = .clear
-    @IBInspectable var borderWidth: CGFloat = 0
-    @IBInspectable var cornerRadius: CGFloat = 0
-    @IBInspectable var task1Color: UIColor = .blue
-    @IBInspectable var task2Color: UIColor = .red
+    @IBInspectable public var monthNameVisible: Bool = true
+    @IBInspectable public var borderColor: UIColor = .clear
+    @IBInspectable public var borderWidth: CGFloat = 0
+    @IBInspectable public var cornerRadius: CGFloat = 0
+    @IBInspectable public var task1Color: UIColor = .blue
+    @IBInspectable public var task2Color: UIColor = .red
     
-    @IBInspectable var arrowsAvailable: Bool = true
-    @IBInspectable var rightArrowImage: UIImage? = UIImage(named: "right_arrow")
-    @IBInspectable var leftArrowImage: UIImage? = UIImage(named: "left_arrow")
+    @IBInspectable public var arrowsAvailable: Bool = true
+    @IBInspectable public var rightArrowImage: UIImage? = UIImage(named: "right_arrow")
+    @IBInspectable public var leftArrowImage: UIImage? = UIImage(named: "left_arrow")
     
-    @IBInspectable var verticalSwipe: Bool = true
-    @IBInspectable var horizontalSwipe: Bool = true
+    @IBInspectable public var verticalSwipe: Bool = true
+    @IBInspectable public var horizontalSwipe: Bool = true
     
-    @IBInspectable var animation: Bool = true
-    @IBInspectable var animationDuration: TimeInterval = 0.5
+    @IBInspectable public var animation: Bool = true
+    @IBInspectable public var animationDuration: TimeInterval = 0.5
     
-    @IBInspectable var colorForDaySelected: UIColor = .red
+    @IBInspectable public var colorForDaySelected: UIColor = .red
     
-    @IBInspectable var widthForView: CGFloat = 360//260
-    @IBInspectable var heightForView: CGFloat = 360//300
+    @IBInspectable public var widthForView: CGFloat = 360//260
+    @IBInspectable public var heightForView: CGFloat = 360//300
     
     //AnimationType
-    var animationForMonthUpdate: AnimationType = .other
+    public var animationForMonthUpdate: AnimationType = .other
     
-    var notAvailableDays: [DayModel] = [
+    public var notAvailableDays: [DayModel] = [
         DayModel(day: 1, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
         DayModel(day: 2, month: 3, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
         DayModel(day: 3, month: 3, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2")]
     
-    var daysWithTasks: [DayModel] = [
+    public var daysWithTasks: [DayModel] = [
         DayModel(day: 1, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
         DayModel(day: 5, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
         DayModel(day: 7, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
@@ -84,7 +84,7 @@ class GMCalendar: UIView {
     private let cal = Calendar(identifier: .gregorian)
     private var dayNames: [String] = []
     
-    var delegate: GMCalendarDelegate?
+    public var delegate: GMCalendarDelegate?
     
     //MARK: - Life cycle
     
@@ -99,7 +99,7 @@ class GMCalendar: UIView {
         commonInit()
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         self.initView()
     }
     
