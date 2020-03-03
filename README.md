@@ -37,6 +37,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
+### Cocoapods
 To integrate GMCalendar into your Xcode project using CocoaPods, you have to specify it in your  `Podfile` :
 
 ```ruby
@@ -52,6 +53,9 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+### Swift Package Manager
+
+You can also use GMCalendar using Swift package with: https://github.com/gianmode1803/GMCalendarPackage.git
 
 ## Usage
 
