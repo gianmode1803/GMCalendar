@@ -44,7 +44,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '13.0'
 use_frameworks!
 
-pod 'GMCalendar', '1.1'
+pod 'GMCalendar', '1.2'
 ```
 
 Then, run the following command: 
