@@ -16,25 +16,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-//        let calendar: GMCalendar = GMCalendar(frame: CGRect(x: 0, y: 0, width: 275, height: 275))
+        //If you want to use it by code
+//        let calendar: GMCalendar = GMCalendar(frame: CGRect(x: 50, y: 100, width: 275, height: 275))
 //        self.view.addSubview(calendar)
 //        
 //        calendar.widthAnchor.constraint(equalToConstant: 275).isActive = true
 //        calendar.heightAnchor.constraint(equalToConstant: 275).isActive = true
-//        
-//        let centerContraintW = NSLayoutConstraint(item: calendar, attribute: .centerX, relatedBy: .equal, toItem: calendar, attribute: .centerX, multiplier: 1, constant: 0)
-//        
-//        let centerContraintH = NSLayoutConstraint(item: calendar, attribute: .centerY, relatedBy: .equal, toItem: calendar, attribute: .centerY, multiplier: 1, constant: 0)
-//        
-//        self.view.addConstraints([centerContraintW, centerContraintH])
-//        
-//        NSLayoutConstraint.activate([centerContraintW, centerContraintH])
-        
-        
-        
-        
-        
+
+    
     }
 
     override func didReceiveMemoryWarning() {
