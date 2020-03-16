@@ -39,8 +39,8 @@ public class GMCalendar: UIView {
     
     @IBInspectable public var colorForDaySelected: UIColor = .red
     
-    @IBInspectable public var widthForView: CGFloat = 360//260
-    @IBInspectable public var heightForView: CGFloat = 360//300
+    @IBInspectable public var widthForView: CGFloat = 275//360//260
+    @IBInspectable public var heightForView: CGFloat = 275//360//300
     
     //AnimationType
     public var animationForMonthUpdate: AnimationType = .other
@@ -100,17 +100,13 @@ public class GMCalendar: UIView {
     }
     
     override public func awakeFromNib() {
-        self.initView()
+        //self.initView()
     }
     
     //MARK: - Custom functions
     
     func commonInit(){
-//        let view = UINib(nibName: "\(GMCalendar.self)", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UIView
-//        view.frame = CGRect(x: 0, y: 0, width: self.widthForView, height: self.heightForView)
-//        view.widthAnchor.constraint(equalToConstant: self.widthForView).isActive = true
-//        view.heightAnchor.constraint(equalToConstant: self.heightForView).isActive = true
-//        self.addSubview(view)
+
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.widthForView, height: self.widthForView))
         view.widthAnchor.constraint(equalToConstant: self.widthForView).isActive = true
         view.heightAnchor.constraint(equalToConstant: self.heightForView).isActive = true
@@ -228,7 +224,7 @@ public class GMCalendar: UIView {
     
     func addMonthName(){
         
-        let horizontalStackView = UIStackView(frame: CGRect(x: 0, y: spaceBetweenMarginAndHeader, width: self.frame.width, height: self.monthHeader))
+        let horizontalStackView = UIStackView(frame: CGRect(x: 0, y: spaceBetweenMarginAndHeader, width: self.frame.width - 10, height: self.monthHeader))
         horizontalStackView.axis = .horizontal
         horizontalStackView.distribution = .fill
         horizontalStackView.alignment = .center
@@ -282,7 +278,7 @@ public class GMCalendar: UIView {
     
     func addHeaders(){
         
-        let horizontalStack = UIStackView(frame: CGRect(x: 0, y: spaceBetweenMarginAndHeader + monthHeader + spaceBetweenMonthAndHeader, width: self.bounds.width, height: headerHeight))
+        let horizontalStack = UIStackView(frame: CGRect(x: 0, y: spaceBetweenMarginAndHeader + monthHeader + spaceBetweenMonthAndHeader, width: self.bounds.width - 10, height: headerHeight))
         horizontalStack.axis = .horizontal
         horizontalStack.distribution = .fillEqually
         horizontalStack.spacing = spaceBetweenDays
@@ -304,26 +300,13 @@ public class GMCalendar: UIView {
         }
         self.content.addSubview(horizontalStack)
         
-//        let leadingConstraint = NSLayoutConstraint(item: horizontalStack, attribute: .leading, relatedBy: .equal, toItem: self.content, attribute: .leading, multiplier: 1, constant: 0)
-//        let trailingConstraint = NSLayoutConstraint(item: horizontalStack, attribute: .trailing, relatedBy: .equal, toItem: self.content, attribute: .trailing, multiplier: 1, constant: 0)
-//        let topConstraint = NSLayoutConstraint(item: horizontalStack, attribute: .top, relatedBy: .equal, toItem: self.content, attribute: .top, multiplier: 1, constant: 0)
-//        horizontalStack.heightAnchor.constraint(equalToConstant: headerHeight).isActive = true
-//        
-//        self.addConstraints([leadingConstraint, trailingConstraint, topConstraint])
-//        
-//        NSLayoutConstraint.activate([leadingConstraint, trailingConstraint, topConstraint])
     }
     
     func addDays(){
-    
-        //let weeksInMonth = cal.range(of: .weekOfMonth, in: .month, for: currentDate)?.count
-        
-        //self.dayHeight = ((self.content.bounds.height - self.spaceBetweenMarginAndHeader - self.monthHeader - self.spaceBetweenMonthAndHeader - self.headerHeight - self.spaceBetweenHeaderAndDays) - (CGFloat(self.weeksInMonth) * (self.verticalSpaceBetweenDays * 1.2))) / CGFloat(self.weeksInMonth)
-
         let height = self.frame.height * 0.65//(dayHeight * CGFloat(weeksInMonth)) + (verticalSpaceBetweenDays * CGFloat(weeksInMonth - 1))
         //spaceBetweenMarginAndHeader + monthHeader + 10
         
-        let verticalStack = UIStackView(frame: CGRect(x: 0, y: (monthHeader + spaceBetweenMonthAndHeader + spaceBetweenMarginAndHeader + headerHeight + spaceBetweenHeaderAndDays), width: self.bounds.width, height: height))
+        let verticalStack = UIStackView(frame: CGRect(x: 0, y: (monthHeader + spaceBetweenMonthAndHeader + spaceBetweenMarginAndHeader + headerHeight + spaceBetweenHeaderAndDays), width: self.bounds.width - 10, height: height))
         verticalStack.axis = .vertical
         verticalStack.distribution = .fillEqually
         verticalStack.spacing = verticalSpaceBetweenDays / 2
@@ -334,7 +317,7 @@ public class GMCalendar: UIView {
         
         for i in 1...weeksInMonth {
             
-            let horizontalStack = UIStackView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.dayHeight))
+            let horizontalStack = UIStackView(frame: CGRect(x: 0, y: 0, width: self.bounds.width - 10, height: self.dayHeight))
             horizontalStack.axis = .horizontal
             horizontalStack.spacing = spaceBetweenDays
             horizontalStack.distribution = .fillEqually
@@ -424,20 +407,9 @@ public class GMCalendar: UIView {
             }
             verticalStack.addArrangedSubview(horizontalStack)
 
-            //horizontalStack.heightAnchor.constraint(equalToConstant: dayHeight).isActive = true
         }
         
         self.content.addSubview(verticalStack)
-        
-//        let leadingConstraint = NSLayoutConstraint(item: verticalStack, attribute: .leading, relatedBy: .equal, toItem: self.content, attribute: .leading, multiplier: 1, constant: 0)
-//        let trailingConstraint = NSLayoutConstraint(item: verticalStack, attribute: .trailing, relatedBy: .equal, toItem: self.content, attribute: .trailing, multiplier: 1, constant: 0)
-//        let topConstraint = NSLayoutConstraint(item: verticalStack, attribute: .top, relatedBy: .equal, toItem: self.content, attribute: .top, multiplier: 1, constant: 70)
-//        
-//        verticalStack.heightAnchor.constraint(equalToConstant: height).isActive = true
-//        
-//        self.addConstraints([leadingConstraint, trailingConstraint, topConstraint])
-//        
-//        NSLayoutConstraint.activate([leadingConstraint, trailingConstraint, topConstraint])
 
     }
     
@@ -465,14 +437,8 @@ public class GMCalendar: UIView {
     
         let someLastDateTime = formatter.date(from: "\(year)/\(month)/\(daysInMonth)")
         let day = Calendar.current.component(.weekday, from: someLastDateTime!)
-        
-//        if self.firstDay == 2{
-//            day -= 1
-//            if day == 0 {
-//                day = 7
-//            }
-//        }
-            return day
+
+        return day
     }
     
     func verifyIfDayHaveTasks(day: Int, month: Int, year: Int) -> DayModel?{

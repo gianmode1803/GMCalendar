@@ -14,21 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fs-CF-b7H" customClass="GMCalendar" customModule="GMCalendar" customModuleProvider="target">
-                                <rect key="frame" x="7.5" y="153.5" width="360" height="360"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="360" id="CO1-9Y-93n"/>
-                                    <constraint firstAttribute="height" constant="360" id="WuK-hH-Iu4"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="8Fs-CF-b7H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="62J-f4-1h6"/>
-                            <constraint firstItem="8Fs-CF-b7H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wlb-hY-LL7"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
