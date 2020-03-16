@@ -19,12 +19,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9VL-yN-5zB" customClass="GMCalendar" customModule="GMCalendar">
-                                <rect key="frame" x="7.5" y="153.5" width="360" height="360"/>
+                                <rect key="frame" x="50" y="196" width="275" height="275"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="360" id="5Lx-Ro-S0V"/>
-                                    <constraint firstAttribute="width" constant="360" id="gy0-DW-oDv"/>
+                                    <constraint firstAttribute="height" constant="275" id="5Lx-Ro-S0V"/>
+                                    <constraint firstAttribute="width" constant="275" id="8VU-LE-0Lj"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="275" id="DWw-aY-6fj"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="widthForView">
+                                        <real key="value" value="275"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="heightForView">
+                                        <real key="value" value="275"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
