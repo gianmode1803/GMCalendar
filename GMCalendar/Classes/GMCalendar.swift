@@ -42,8 +42,6 @@ public class GMCalendar: UIView {
     @IBInspectable public var widthForView: CGFloat = 275//360//260
     @IBInspectable public var heightForView: CGFloat = 275//360//300
     
-    @IBInspectable public var showWeekends: Bool = true
-    
     //AnimationType
     public var animationForMonthUpdate: AnimationType = .other
     
@@ -82,7 +80,6 @@ public class GMCalendar: UIView {
     private var spaceBetweenHeaderAndDays: CGFloat = 25
     private var verticalSpaceBetweenDays: CGFloat = 20
     private var dayHeight: CGFloat = 25
-    private var days = DayItems.allCasesIterable
     
     private let cal = Calendar(identifier: .gregorian)
     private var dayNames: [String] = []
@@ -286,6 +283,7 @@ public class GMCalendar: UIView {
         horizontalStack.distribution = .fillEqually
         horizontalStack.spacing = spaceBetweenDays
         
+        var days = DayItems.allCasesIterable
         if self.firstDay == 1{
             days = [DayItems.sunday, DayItems.monday, DayItems.tuesday, DayItems.wednesday, DayItems.thursday, DayItems.friday, DayItems.saturday]
         }
@@ -295,13 +293,10 @@ public class GMCalendar: UIView {
             let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthForHeader, height: headerHeight))
             headerLabel.textAlignment = .center
             headerLabel.text = item.getDayName().uppercased()
-            
             headerLabel.adjustsFontSizeToFitWidth = true
             headerLabel.minimumScaleFactor = 0.2
             headerLabel.numberOfLines = 1
-            if !((self.showWeekends == false) && ((item == .saturday) || (item == .sunday))){
-                horizontalStack.addArrangedSubview(headerLabel)
-            }
+            horizontalStack.addArrangedSubview(headerLabel)
         }
         self.content.addSubview(horizontalStack)
         
@@ -326,10 +321,8 @@ public class GMCalendar: UIView {
             horizontalStack.axis = .horizontal
             horizontalStack.spacing = spaceBetweenDays
             horizontalStack.distribution = .fillEqually
-            
-            var j = 1
-            
-            for day in self.days{//for j in 1...7 {
+
+            for j in 1...7 {
 
                 let widthForButton = (self.bounds.width / CGFloat(DayItems.allCasesIterable.count)) - (spaceBetweenDays * CGFloat(DayItems.allCasesIterable.count))
                 let dayLabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthForButton, height: dayHeight))
@@ -411,10 +404,6 @@ public class GMCalendar: UIView {
                         
                     }
                 }
-                if ((self.showWeekends == false) && ((day == .saturday) || (day == .sunday))){
-                    dayLabel.removeFromSuperview()
-                }
-                j += 1
             }
             verticalStack.addArrangedSubview(horizontalStack)
 
@@ -423,6 +412,7 @@ public class GMCalendar: UIView {
         self.content.addSubview(verticalStack)
 
     }
+    
     func getFirstDay(week: WeekNumber, month: Int, year: Int)-> Int{
         
         let formatter = DateFormatter()
