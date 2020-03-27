@@ -42,6 +42,10 @@ public class GMCalendar: UIView {
     @IBInspectable public var widthForView: CGFloat = 275//360//260
     @IBInspectable public var heightForView: CGFloat = 275//360//300
     
+    @IBInspectable public var showWeekends: Bool = true
+    
+    @IBInspectable public var showCurrentDaySelected: Bool = true
+    
     //AnimationType
     public var animationForMonthUpdate: AnimationType = .other
     
@@ -51,7 +55,7 @@ public class GMCalendar: UIView {
         DayModel(day: 3, month: 3, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2")]
     
     public var daysWithTasks: [DayModel] = [
-        DayModel(day: 1, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
+        DayModel(day: 1, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: false, task2Description: "Prueba 2"),
         DayModel(day: 5, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
         DayModel(day: 7, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
         DayModel(day: 12, month: 2, year: 2020, task1: true, task1Description: "Prueba", task2: true, task2Description: "Prueba 2"),
@@ -63,6 +67,7 @@ public class GMCalendar: UIView {
     //1 sunday, 2 monday
     private let firstDay = Calendar.current.firstWeekday
     
+    private var currentDay: Int = 25
     private var originalMonth: Int = 2
     private var originalYear: Int = 2020
     private var currentMonth: Int = 2
@@ -80,6 +85,7 @@ public class GMCalendar: UIView {
     private var spaceBetweenHeaderAndDays: CGFloat = 25
     private var verticalSpaceBetweenDays: CGFloat = 20
     private var dayHeight: CGFloat = 25
+    private var days = DayItems.allCasesIterable
     
     private let cal = Calendar(identifier: .gregorian)
     private var dayNames: [String] = []
@@ -122,14 +128,23 @@ public class GMCalendar: UIView {
         self.addSubview(view)
         
         self.initView()
+        
     }
     
     func initView(){
-        self.setUpView()
         
-        self.originalYear = self.currentYear
+        self.currentMonth = cal.component(.month, from: currentDate)
+        self.currentYear = cal.component(.year, from: currentDate)
+        
         self.originalMonth = self.currentMonth
+        self.originalYear = self.currentYear
+        
+        self.currentDay = cal.component(.day, from: currentDate)
+        
         self.dayNames = cal.weekdaySymbols
+        
+        
+        self.setUpView()
     }
     
     func setupHeights(){
@@ -173,8 +188,7 @@ public class GMCalendar: UIView {
     }
     
     private func setUpInitialCalendar(){
-        self.currentMonth = cal.component(.month, from: currentDate)
-        self.currentYear = cal.component(.year, from: currentDate)
+        
         self.weeksInMonth = cal.range(of: .weekOfMonth, in: .month, for: currentDate)!.count
         if firstDay == 2 {
             self.weeksInMonth = self.weeksInMonth + 1
@@ -283,7 +297,6 @@ public class GMCalendar: UIView {
         horizontalStack.distribution = .fillEqually
         horizontalStack.spacing = spaceBetweenDays
         
-        var days = DayItems.allCasesIterable
         if self.firstDay == 1{
             days = [DayItems.sunday, DayItems.monday, DayItems.tuesday, DayItems.wednesday, DayItems.thursday, DayItems.friday, DayItems.saturday]
         }
@@ -293,18 +306,20 @@ public class GMCalendar: UIView {
             let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthForHeader, height: headerHeight))
             headerLabel.textAlignment = .center
             headerLabel.text = item.getDayName().uppercased()
+            
             headerLabel.adjustsFontSizeToFitWidth = true
             headerLabel.minimumScaleFactor = 0.2
             headerLabel.numberOfLines = 1
-            horizontalStack.addArrangedSubview(headerLabel)
+            if !((self.showWeekends == false) && ((item == .saturday) || (item == .sunday))){
+                horizontalStack.addArrangedSubview(headerLabel)
+            }
         }
         self.content.addSubview(horizontalStack)
         
     }
     
     func addDays(){
-        let height = self.frame.height * 0.65//(dayHeight * CGFloat(weeksInMonth)) + (verticalSpaceBetweenDays * CGFloat(weeksInMonth - 1))
-        //spaceBetweenMarginAndHeader + monthHeader + 10
+        let height = self.frame.height * 0.65
         
         let verticalStack = UIStackView(frame: CGRect(x: 0, y: (monthHeader + spaceBetweenMonthAndHeader + spaceBetweenMarginAndHeader + headerHeight + spaceBetweenHeaderAndDays), width: self.bounds.width - 10, height: height))
         verticalStack.axis = .vertical
@@ -321,13 +336,23 @@ public class GMCalendar: UIView {
             horizontalStack.axis = .horizontal
             horizontalStack.spacing = spaceBetweenDays
             horizontalStack.distribution = .fillEqually
+            
+            var j = 1
+            
+            for day in self.days{//for j in 1...7 {
 
-            for j in 1...7 {
-
-                let widthForButton = (self.bounds.width / CGFloat(DayItems.allCasesIterable.count)) - (spaceBetweenDays * CGFloat(DayItems.allCasesIterable.count))
-                let dayLabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthForButton, height: dayHeight))
+                var numberOfDays: CGFloat = 0
+                
+                if self.showWeekends == false {
+                    numberOfDays = 5
+                }else{
+                    numberOfDays = 7
+                }
+                
+                let widthForDays = ((self.content.bounds.width  - (self.spaceBetweenDays * (numberOfDays - 1)))/numberOfDays)
+                
+                let dayLabel = UILabel(frame: CGRect(x: 0, y: 0, width: widthForDays, height: dayHeight))
                 horizontalStack.addArrangedSubview(dayLabel)
-                //dayLabel.widthAnchor.constraint(equalToConstant: widthForButton).isActive = true
                 
                 dayLabel.textAlignment = .center
                 dayLabel.isUserInteractionEnabled = true
@@ -374,36 +399,51 @@ public class GMCalendar: UIView {
                 if dayAdded{
                     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectedDay(_:)))
                     dayLabel.addGestureRecognizer(gestureRecognizer)
-                    let day = Int(dayLabel.text!)
+                    let day = Int(dayLabel.text ?? "")
                     if let dayTasks = verifyIfDayHaveTasks(day: day!, month: self.currentMonth, year: self.currentYear) as DayModel?{
-                        let yPoint = horizontalStack.frame.height - 6
-                        let point = CGPoint(x: dayLabel.frame.width / 2, y: yPoint)
-                        var differenceForTask1: CGFloat = 16
-                        var differenceForTask2: CGFloat = 11
+
+                        let viewForTasks: UIView = UIView(frame: CGRect(x: 0, y: dayLabel.frame.height - verticalSpaceBetweenDays - 1, width: widthForDays, height: 5))
                         
-                        if((dayTasks.task1 && !dayTasks.task2) || (!dayTasks.task1 && dayTasks.task2)){
-                            differenceForTask1 = point.x * 1.5
-                            differenceForTask2 = point.x * 1.5
+                        dayLabel.addSubview(viewForTasks)
+                        
+                        viewForTasks.backgroundColor = .clear
+
+                        var xForTask1 = (dayLabel.frame.width / 2) - 3
+                        var xForTask2 = (dayLabel.frame.width / 2) + 2
+
+                        if (dayTasks.task1 && !dayTasks.task2) || (!dayTasks.task1 && dayTasks.task2) {
+                            xForTask1 = dayLabel.frame.width / 2
+                            xForTask2 = dayLabel.frame.width / 2
                         }
                         
                         if dayTasks.task1{
-                            let viewTask1 = UIView(frame: CGRect(x: point.x + differenceForTask1, y: point.y, width: 3, height: 3))
+                            let viewTask1 = UIView(frame: CGRect(x: xForTask1, y: 1, width: 3, height: 3))
                             viewTask1.backgroundColor = self.task1Color
                             viewTask1.roundBourdersUntilCircle()
-                            dayLabel.addSubview(viewTask1)
+                            viewForTasks.addSubview(viewTask1)
 
                         }
                         if dayTasks.task2{
-                            let viewTask2 = UIView(frame: CGRect(x: point.x + differenceForTask2, y: point.y, width: 3, height: 3))
+                            let viewTask2 = UIView(frame: CGRect(x: xForTask2, y: 1, width: 3, height: 3))
                             viewTask2.backgroundColor = self.task2Color
                             viewTask2.roundBourdersUntilCircle()
-                            dayLabel.addSubview(viewTask2)
-
+                            viewForTasks.addSubview(viewTask2)
                         }
 
                         
                     }
+                    
+                    if showCurrentDaySelected {
+                        let day = Int(dayLabel.text ?? "")
+                        if (day == self.currentDay) && (self.currentMonth == self.originalMonth) && (self.currentYear == self.originalYear){
+                            self.createViewForDaySelected(label: dayLabel)
+                        }
+                    }
                 }
+                if ((self.showWeekends == false) && ((day == .saturday) || (day == .sunday))){
+                    dayLabel.removeFromSuperview()
+                }
+                j += 1
             }
             verticalStack.addArrangedSubview(horizontalStack)
 
@@ -412,7 +452,6 @@ public class GMCalendar: UIView {
         self.content.addSubview(verticalStack)
 
     }
-    
     func getFirstDay(week: WeekNumber, month: Int, year: Int)-> Int{
         
         let formatter = DateFormatter()

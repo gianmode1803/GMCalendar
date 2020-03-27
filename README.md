@@ -124,6 +124,10 @@ GMCalendar supports the following modification in code:
 @IBInspectable var widthForView: CGFloat = 360//260
 @IBInspectable var heightForView: CGFloat = 360//300
 
+@IBInspectable public var showWeekends: Bool = false
+
+@IBInspectable public var showCurrentDaySelected: Bool = true
+
 ```
 or in the storyBoard:
 
@@ -171,6 +175,8 @@ var daysWithTasks: [DayModel] = [
 
 ```
 ![](https://user-images.githubusercontent.com/22319734/75530073-f3d62e80-5a13-11ea-9aa8-0ec1cfc2ddc2.png)
+
+*NOTE: In the current version (2.0) you can hide weekends if you want*
 
 ## Author
 
