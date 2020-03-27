@@ -42,9 +42,9 @@ public class GMCalendar: UIView {
     @IBInspectable public var widthForView: CGFloat = 275//360//260
     @IBInspectable public var heightForView: CGFloat = 275//360//300
     
-    @IBInspectable public var showWeekends: Bool = true
+    @IBInspectable public var showWeekends: Bool = false
     
-    @IBInspectable public var showCurrentDaySelected: Bool = true
+    @IBInspectable public var showCurrentDaySelected: Bool = false
     
     //AnimationType
     public var animationForMonthUpdate: AnimationType = .other
